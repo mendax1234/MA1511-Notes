@@ -155,5 +155,67 @@ It's very difficult to visualize a function $f$ of three variables by its graph,
     \end{figure}
     From this figure \ref{fig:limits-definition-explanation}, we can see that if any small interval $(L - \epsilon, L + \epsilon)$ is given around $L$, then we can find a disk $D_\delta$ with center $(a,b)$ and radius $\delta > 0$ such that $\symbfit{f}$ maps all the points in $D_\delta$ \text{[except possibly $(a,b)$]} into the interval $(L - \epsilon, L + \epsilon)$
 \end{exbox}
-
+\subsubsection{Show that a limit doesn't exist}
+Since in the definition of \nameref{dfn:limits}, it refers only to the \textbf{distance} between $(x,y)$ and $(a,b)$. It does not refer to the \textbf{direction} of approach. Therefore, if the limit exists, then $f(x,y)$ must approach the same limit \textbf{no matter how} $(x,y)$ approaches $(a,b)$. Thus, one way to show that $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ does not exist is to find {\color{red} \textbf{different paths}} of approach along which the function has different limits.
+\begin{notebox}
+    \begin{claim}
+        If $f(x,y) \to L_1$ as $(x,y) \to (a,b)$ along a path $C_1$ and $f(x,y) \to L_2$ as $(x,y) \to (a,b)$ along a path $C_2$, where $L_1 \neq L_2$, then $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ does not exist.
+    \end{claim}
+\end{notebox}
+\begin{exbox}{Limit does not exist}{limits-dne}
+    Show that $\lim\limits_{(x,y) \to (0,0)} \frac{x^2-y^2}{x^2+y^2}$ does not exist \newline
+    {\color{blue} \textbf{Solution}}:
+    \begin{enumerate}
+        \item Let's approach $(0,0)$ along the $x$-axis. On this path $y=0$, the function becomes $f(x,0)=\frac{x^2}{x^2}=1, \forall x \neq 0$ and thus
+        \begin{displaymath}
+            f(x,y) \to 1 \text{ as } (x,y) \to (0,0) \text{ along the }x \text{-axis.}
+        \end{displaymath}
+        \item We now approach along the $y$-axis by putting $x=0$. Then $f(0,y)=\frac{-y^2}{y^2}=-1, \forall y \neq 0$, so
+        \begin{displaymath}
+            (x,y) \to -1 \text{ as } (x,y) \to (0,0) \text{ along the }y \text{-axis.}
+        \end{displaymath}
+        So, DNE!
+    \end{enumerate}
+\end{exbox}
+\subsubsection{Properties of Limits}
+Before we talk about the properties, let's give two definitions about the \textbf{polynomial function} and the \textbf{rational function}.
+\begin{dfnbox}{Polynomial Function}{polynomial-function}
+    A {\color{red} \textbf{polynomial function}} of two variables (or polynomial, for short) is a sum of terms of the form ($x^my^n$, where $\symbfit{c}$ is a constant and $\symbfit{m}$ and $\symbfit{n}$ are \textbf{non-negative integers}. For example,
+    \begin{displaymath}
+        p(x,y)=x^4+5x^3y^2+6xy^4-7y+6
+    \end{displaymath}
+\end{dfnbox}
+\begin{dfnbox}{Rational Function}{rational-function}
+    A {\color{red} \textbf{rational function}} is a ratio of two \nameref{dfn:polynomial-function}s. For example,
+    \begin{displaymath}
+        q(x,y)=\frac{2xy+1}{x^2+y^2}
+    \end{displaymath}
+\end{dfnbox}
+Now, we state that
+\begin{notebox}
+    \begin{claim}
+        To find the limit of any polynomial function, we can use \textbf{direct substitution}. For example,
+        \begin{displaymath}
+            \lim\limits_{(x,y) \to (a,b)} p(x,y) = p(a,,b)
+        \end{displaymath}
+    \end{claim}
+\end{notebox}
+and,
+\begin{notebox}
+    \begin{claim}
+        To find the limit of any rational function, we have
+        \begin{displaymath}
+            \lim\limits_{(x,y) \to (a,b)} q(x,y) = \lim\limits_{(x,y) \to (a,b)} \frac{p(x,y)}{r(x,y)} = \frac{p(a,b)}{r(a,b)}=q(a,b)
+        \end{displaymath}
+        provided that $(a,b)$ is in the domain of $q$. If not, we need to use the definition about limits does not exist.
+    \end{claim}
+\end{notebox}
+\subsection{Continuity}
+\begin{dfnbox}{Continuity}{continuity}
+    A function $\symbfit{f}$ of two variables is called {\color{red} \textbf{continuous}} at $(a,b)$ if
+    \begin{displaymath}
+        \lim\limits_{(x,y) \to (a,b)} f(x,y) = f(a,b)
+    \end{displaymath}
+    We say that $\symbfit{f}$ is {\color{red} \textbf{continuous}} on $\symbfit{D}$ if $\symbfit{f}$ is continuous at every point $(a,b)$ in $\symbfit{D}$.
+\end{dfnbox}
 \end{document}
