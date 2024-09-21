@@ -49,6 +49,8 @@
 \setlength {\marginparwidth }{2cm}
 \RequirePackage[textsize=scriptsize]{todonotes}     % todo notes
 \RequirePackage{tabularx}
+\RequirePackage{float}
+\RequirePackage{environ}
 
 \ifamznotes@math
     \RequirePackage{mathtools}          % for math macros; also loads amsmath
