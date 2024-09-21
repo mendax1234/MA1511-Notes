@@ -49,7 +49,7 @@ We often write $z=f(x,y)$ to make explicit the value taken on by $\symbfit{f}$ a
 \subsection{Visualization}
 Let's take functions of two variables as an example.
 \begin{exbox}{Arrow Diagram for Functions of Two Variables}{arrow-diagram}
-    A function of two variables is just a function whose domain is a subset of $R^2$ and whose range is a subset of $R$. Then, we can draw the arrow diagram like below:
+    A function of two variables is just a function whose domain is a subset of $\R^2$ and whose range is a subset of $R$. Then, we can draw the arrow diagram like below:
     \begin{figure}[H]
     \centering
     \includegraphics[width=0.35\linewidth]{images/arrow-diagram.png}
@@ -60,7 +60,7 @@ Let's take functions of two variables as an example.
 \subsection{Graph}
 Knowing the figure \ref{fig:arrow-diagram}, we can reform the diagram into a three dimensional coordinate system. And here comes the definition of \textbf{graph}
 \begin{dfnbox}{Graph of functions of two variables}{graph-of-function-of-two-variables}
-    If $\symbfit{f}$ is a function of two variables within domain $\symbfit{D}$, then the {\color{red} \textbf{graph}} of $\symbfit{f}$ is the set of all points $(x,y,z)$ in $R^3$ such that $\symbfit{z}=f(x,y)$ and $(x,y)$ is in $\symbfit{D}$.
+    If $\symbfit{f}$ is a function of two variables within domain $\symbfit{D}$, then the {\color{red} \textbf{graph}} of $\symbfit{f}$ is the set of all points $(x,y,z)$ in $\R^3$ such that $\symbfit{z}=f(x,y)$ and $(x,y)$ is in $\symbfit{D}$.
 \end{dfnbox}
 \begin{notebox}
     \begin{remark}
@@ -100,10 +100,10 @@ Now, let's see an example about how the graph for a function of two variables lo
         \caption{Level Curve Examples}
         \label{fig:level-curve-examples}
     \end{figure}
-    In this example, we have a function of two variables and its graph should be in $R^3$, but since we need to find its level curves. To find level curves, we need to decrease the dimension by 1, so its level curves are in $R^2$.
+    In this example, we have a function of two variables and its graph should be in $\R^3$, but since we need to find its level curves. To find level curves, we need to decrease the dimension by 1, so its level curves are in $\R^2$.
 \end{exbox}
 \subsection{Contour Curves}
-In the functions of two variables, we've seen that its level curves must be in $R^2$. But thinking it deeply, how does level curves come? Basically, it is the projection of \textbf{contour curves} onto the $\symbfit{xy}$-plane. So, what is the \textbf{contour plane}?
+In the functions of two variables, we've seen that its level curves must be in $\R^2$. But thinking it deeply, how does level curves come? Basically, it is the projection of \textbf{contour curves} onto the $\symbfit{xy}$-plane. So, what is the \textbf{contour plane}?
 \begin{dfnbox}{Contour Curve}{contourcurve}
     For a function of two variables, denoted by $z=f(x,y)$. A horizontal plane $z=k$ may or may not intersect with the graph of $\symbfit{f}$ along a curve. If the curve exists, we say that the curve is a {\color{red} \textbf{contour curve of height $k$}}. If not, we say the contour curve doesn't exist at height $k$ for the function $\symbfit{f}$.
 \end{dfnbox}
@@ -123,7 +123,7 @@ To visual it more directly, let's see the example below
     \end{remark}
 \end{notebox}
 \subsection{Functions of Three of more variables}
-It's very difficult to visualize a function $f$ of three variables by its graph, since that would lie in $R^4$. However, we do gain some insight into $f$ by examining its {\color{red} \textbf{level surfaces}}, which are surfaces with equations $f(x,y,z)=k$, where $k$ is a constant.
+It's very difficult to visualize a function $f$ of three variables by its graph, since that would lie in $\R^4$. However, we do gain some insight into $f$ by examining its {\color{red} \textbf{level surfaces}}, which are surfaces with equations $f(x,y,z)=k$, where $k$ is a constant.
 \begin{exbox}{Find level surfaces}{find-level-surfaces}
     Find the level surfaces of the function
     \begin{displaymath}
@@ -156,10 +156,10 @@ It's very difficult to visualize a function $f$ of three variables by its graph,
     From this figure \ref{fig:limits-definition-explanation}, we can see that if any small interval $(L - \epsilon, L + \epsilon)$ is given around $L$, then we can find a disk $D_\delta$ with center $(a,b)$ and radius $\delta > 0$ such that $\symbfit{f}$ maps all the points in $D_\delta$ \text{[except possibly $(a,b)$]} into the interval $(L - \epsilon, L + \epsilon)$
 \end{exbox}
 \subsubsection{Show that a limit doesn't exist}
-Since in the definition of \nameref{dfn:limits}, it refers only to the \textbf{distance} between $(x,y)$ and $(a,b)$. It does not refer to the \textbf{direction} of approach. Therefore, if the limit exists, then $f(x,y)$ must approach the same limit \textbf{no matter how} $(x,y)$ approaches $(a,b)$. Thus, one way to show that $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ does not exist is to find {\color{red} \textbf{different paths}} of approach along which the function has different limits.
+Since in the definition of \nameref{dfn:limits}, it refers only to the \textbf{distance} between $(x,y)$ and $(a,b)$. It does not refer to the \textbf{direction} of approach. Therefore, if the limit exists, then $f(x,y)$ must approach the same limit \textbf{no matter how} $(x,y)$ approaches $(a,b)$. Thus, one way to show that $\lim_{(x,y) \to (a,b)} f(x,y)$ does not exist is to find {\color{red} \textbf{different paths}} of approach along which the function has different limits.
 \begin{notebox}
     \begin{claim}
-        If $f(x,y) \to L_1$ as $(x,y) \to (a,b)$ along a path $C_1$ and $f(x,y) \to L_2$ as $(x,y) \to (a,b)$ along a path $C_2$, where $L_1 \neq L_2$, then $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ does not exist.
+        If $f(x,y) \to L_1$ as $(x,y) \to (a,b)$ along a path $C_1$ and $f(x,y) \to L_2$ as $(x,y) \to (a,b)$ along a path $C_2$, where $L_1 \neq L_2$, then $\lim_{(x,y) \to (a,b)} f(x,y)$ does not exist.
     \end{claim}
 \end{notebox}
 \begin{exbox}{Limit does not exist}{limits-dne}
@@ -172,7 +172,7 @@ Since in the definition of \nameref{dfn:limits}, it refers only to the \textbf{d
         \end{displaymath}
         \item We now approach along the $y$-axis by putting $x=0$. Then $f(0,y)=\frac{-y^2}{y^2}=-1, \forall y \neq 0$, so
         \begin{displaymath}
-            (x,y) \to -1 \text{ as } (x,y) \to (0,0) \text{ along the }y \text{-axis.}
+            f(x,y) \to -1 \text{ as } (x,y) \to (0,0) \text{ along the }y \text{-axis.}
         \end{displaymath}
         So, DNE!
     \end{enumerate}
@@ -218,4 +218,81 @@ and,
     \end{displaymath}
     We say that $\symbfit{f}$ is {\color{red} \textbf{continuous}} on $\symbfit{D}$ if $\symbfit{f}$ is continuous at every point $(a,b)$ in $\symbfit{D}$.
 \end{dfnbox}
+\section{Partial Derivatives}
+\subsection{First Order Partial Derivatives}
+\subsubsection{Definition}
+\begin{dfnbox}{First Order Partial Derivatives}{first-order-partial-derivative}
+    If $\symbfit{f}$ is a function of two variables, its {\color{red} \textbf{partial derivative}} are the functions $f_x$ and $f_y$ defined by
+    \begin{gather*}
+        f_x(x,y)=\lim\limits_{h \to 0} \frac{f(x+h,y)-f(x,y)}{h} \\
+        f_y(x,y)=\lim\limits_{h \to 0} \frac{f(x,y+h)-f(x,y)}{h}
+    \end{gather*}
+\end{dfnbox}
+\subsubsection{Notation for Partial Derivatives}
+If $z=f(x,y)$, we write
+\begin{gather*}
+    f_x(x,y)=f_x=\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}f(x,y)=\frac{\partial z}{\partial x}=f_1=D_1f=D_xf \\
+    f_y(x,y)=f_x=\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}f(x,y)=\frac{\partial z}{\partial y}=f_2=D_2f=D_yf
+\end{gather*}
+\subsubsection{Rule for Finding Partial Derivatives of $z=f(x,y)$}
+\begin{thmbox}{Rules for Finding First Order Partial Derivatives}{find-first-order-partial}
+    \begin{enumerate}
+        \item To find $f_x$, regard $\symbfit{y}$ as a constant and differentiate $f(x,y)$ with regard to $\symbfit{x}$.
+        \item To find $f_y$, regard $\symbfit{x}$ as a constant and differentiate $f(x,y)$ with regard to $\symbfit{y}$.
+    \end{enumerate}
+\end{thmbox}
+\subsubsection{Rules of Differentiation}
+Since when doing partial differentiation, we are treating one variable as a constant (if we have two variables in total), so the rules of differention for single variable still applies. Let's recap them.
+\begin{thmbox}{Rules of Differentiation}{rules-of-differentiation}
+    \begin{gather*}
+        (fg)' = f'g+g'f \text{ (product rule)} \\
+        (\frac{f}{g})'=\frac{f'g-g'f}{g^2} \text{ (quotient rule)} \\
+        (f \circ g)' = f'(g) \cdot g' \text{ (chain rule) } ~~\text{where}~~ (f \circ g)(x) = f(g(x)) 
+    \end{gather*}
+\end{thmbox}
+\subsubsection{Geometric Meaning of First Order Partial Derivatives}
+$f_x(a,b)$ and $f_y(a,b)$ can be interpreted geometrically as the {\color{red} \textbf{slopes}} of the tangent lines at $P(a,b,c)$ to the traces $C_1$ and $C_2$ of $\symbfit{S}$ in the plane $y=b$ and $x=a$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/partial-derivative-geometric-meaning.png}
+    \caption{Geometric Meaning of First order Partial Derivatives}
+    \label{fig:geo-meaning-first-order-partial-derivative}
+\end{figure}
+\begin{exbox}{Implicit Partial Differentiation}{implicit-partial-diff}
+    Find $\partial z / \partial x$ and $\partial z / \partial y$ if $\symbfit{z}$ is defined implicitly as a function of $\symbfit{x}$ and $\symbfit{y}$ by the equation
+    \begin{displaymath}
+        x^3+y^3+z^3+6xyz+4=0
+    \end{displaymath}
+    {\color{blue} \textbf{Solution}}:
+    \begin{enumerate}
+        \item We differentiate implicitly with regard to $\symbfit{x}$, being careful to treat $\symbfit{y}$ as a constant and $\symbfit{z}$ as a function (of $\symbfit{x}$)
+        \begin{displaymath}
+            3x^2+3z^2\frac{\partial z}{\partial x}+\underbrace{6yz+6xy\frac{\partial z}{\partial x}}_\text{Product Rule! Be careful!}=0
+        \end{displaymath}
+        Solving this equation, we get
+        \begin{displaymath}
+            \frac{\partial z}{\partial x}=-\frac{x^2+2yz}{z^2+2xy}
+        \end{displaymath}
+        \item Similarly, we implicitly differentiate with regard to $\symbfit{y}$, we will get
+        \begin{displaymath}
+            \frac{\partial z}{\partial y}=-\frac{y^2+2xz}{z^2+2xy}
+        \end{displaymath}
+    \end{enumerate}
+\end{exbox}
+\subsection{Higher Order Partial Derivatives}
+If $\symbfit{f}$ is a function of two variables, then its partial derivatives $f_x$ and $f_y$ are also functions of two variables, so we can consider their partial derivatives $(f_x)_x, (f_x)_y, (f_y)_x, (f_y)_y$, which are called {\color{red} \textbf{second partial derivatives}} of $\symbfit{f}$. If $z=f(x,y)$, we use the following notation:
+\begin{gather*}
+    (f_x)_x=f_{xx}=f_{11}=\frac{\partial}{\partial x}(\frac{\partial f}{\partial x})=\frac{\partial ^2 f}{\partial x^2}=\frac{\partial ^2 z}{\partial x^2} \\
+    (f_x)_y=f_{xy}=f_{12}=\frac{\partial}{\partial y}(\frac{\partial f}{\partial x})=\frac{\partial ^2 f}{\partial y \partial x}=\frac{\partial ^2 z}{\partial y \partial x} \\
+    (f_y)_x=f_{yx}=f_{21}=\frac{\partial}{\partial x}(\frac{\partial f}{\partial y})=\frac{\partial ^2 f}{\partial x \partial y}=\frac{\partial ^2 z}{\partial x \partial y} \\
+    (f_y)_y=f_{yy}=f_{22}=\frac{\partial}{\partial y}(\frac{\partial f}{\partial y})=\frac{\partial ^2 f}{\partial y^2}=\frac{\partial ^2 z}{\partial y^2}
+\end{gather*}
+A very useful Theorem,
+\begin{thmbox}{Clairaut's Theorem}{clairaut-theorem}
+    Suppose $\symbfit{f}$ is defined on a disk $\symbfit{D}$ that contains the point $(a,b)$. If the functions $f_{xy}$ and $f_{yx}$ are both continuous on $\symbfit{D}$, then:
+    \begin{displaymath}
+        f_{xy}(a,b)=f_{yx}(a,b)
+    \end{displaymath}
+    This theorem is sometimes called {\color{red} \textbf{The Mixed Derivative Theorem}}.
+\end{thmbox}
 \end{document}
