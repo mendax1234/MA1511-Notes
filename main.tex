@@ -404,8 +404,17 @@ Sometimes it is hard to use the Definition of \nameref{dfn:differentiable-functi
         dz=f_x(x,y)dx+f_y(x,y)dy=\frac{\partial z}{\partial x}\cdot dx+\frac{\partial z}{\partial y}\cdot dy
     \end{equation}
 \end{dfnbox}
+\begin{notebox}
+    \begin{remark}
+        $dx$ and $dy$ are independent variables means that they represent the change of value in $x$ and $y$ since in your function, $x$ and $y$ are independent variables, you change $x$ and $y$ to change your $z$ accordingly.
+    \end{remark}
+\end{notebox}
 \subsubsection{Geometric meaning of $dz$ and $\Delta z$}
-Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geometric interpretation of the differential $dz$ and the increment $\Delta z$: $dz$  represents the change in height of the tangent plane, whereas $\Delta z$ represents the change in height of the surface $z=f(x,y)$ when $(x,y)$ changes from $(a,b)$ to $(a+\Delta x, b+\Delta y)$
+Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geometric interpretation of the differential $dz$ and the increment $\Delta z$:
+\begin{enumerate}
+    \item $dz$  represents the change in height of the tangent plane, which basically means when you change $x$ with amount of $dx$, then $z$ will change the amount of $(\partial z / \partial x) \cdot dx$. Similarly, when you change $y$ with amount of $dy$, your $z$ will also be changed for the amount of $(\partial z / \partial y) \cdot dy$. And the total changing amount $dz$ is just the sum of the two previous changes.
+    \item $\Delta z$ represents the change in height of the surface $z=f(x,y)$ when $(x,y)$ changes from $(a,b)$ to $(a+\Delta x, b+\Delta y)$
+\end{enumerate}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{images/geomertic-meaning-of-differential-two-variables.png}
