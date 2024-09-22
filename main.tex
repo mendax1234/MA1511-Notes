@@ -8,6 +8,7 @@
 \usepackage{etoolbox}
 \usepackage{tabularx}
 \usepackage{float} % Needed for [H] placement specifier
+\usepackage{wrapfig} % Needed for wrapping figures
 
 \graphicspath{ {./images/} }
 \geometry{
@@ -242,7 +243,7 @@ If $z=f(x,y)$, we write
     \end{enumerate}
 \end{thmbox}
 \subsubsection{Rules of Differentiation}
-Since when doing partial differentiation, we are treating one variable as a constant (if we have two variables in total), so the rules of differention for single variable still applies. Let's recap them.
+Since when doing partial differentiation, we are treating one variable as a constant (if we have two variables in total), so the rules of differentiation for single variable still applies. Let's recap them.
 \begin{thmbox}{Rules of Differentiation}{rules-of-differentiation}
     \begin{gather*}
         (fg)' = f'g+g'f \text{ (product rule)} \\
@@ -250,11 +251,11 @@ Since when doing partial differentiation, we are treating one variable as a cons
         (f \circ g)' = f'(g) \cdot g' \text{ (chain rule) } ~~\text{where}~~ (f \circ g)(x) = f(g(x)) 
     \end{gather*}
 \end{thmbox}
-\subsubsection{Geometric Meaning of First Order Partial Derivatives}
+\subsubsection{Geometric Meaning of First Order Partial Derivatives} \label{sec:geometric-meaing-of-first-order-partial-deri}
 $f_x(a,b)$ and $f_y(a,b)$ can be interpreted geometrically as the {\color{red} \textbf{slopes}} of the tangent lines at $P(a,b,c)$ to the traces $C_1$ and $C_2$ of $\symbfit{S}$ in the plane $y=b$ and $x=a$
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{images/partial-derivative-geometric-meaning.png}
+    \includegraphics[width=0.3\linewidth]{images/partial-derivative-geometric-meaning.png}
     \caption{Geometric Meaning of First order Partial Derivatives}
     \label{fig:geo-meaning-first-order-partial-derivative}
 \end{figure}
@@ -295,4 +296,188 @@ A very useful Theorem,
     \end{displaymath}
     This theorem is sometimes called {\color{red} \textbf{The Mixed Derivative Theorem}}.
 \end{thmbox}
+\section{Tangent Planes and Linear Approximations}
+\subsection{Tangent Planes}
+\subsubsection{What is a tangent plane}
+\begin{dfnbox}{Tangent Plane}{tangent-plane}
+    Let $P(x_0,y_0,z_0)$ be a point on the surface $\symbfit{S}$ defined by the equation $z=f(x,y)$. We will see that the {\color{red} \textbf{tangent plane}} to $\symbfit{S}$ at $\symbfit{P}$ consists of {\color{red} \textbf{all}} tangent lines at $\symbfit{P}$ to curves that lie on $\symbfit{S}$ and pass through $\symbfit{P}$.
+\end{dfnbox}
+For example, let $\symbfit{C_1}$ and $\symbfit{C_2}$ be the curves obtained by intersecting the vertical planes $y=y_0$ and $x=x_0$ with the surface $\symbfit{S}$. Let $\symbfit{T_1}$ and $\symbfit{T_2}$ be the tangent lines to the curves $\symbfit{C_1}$ and $\symbfit{C_2}$ at point $\symbfit{P}$. Then the {\color{red} \textbf{tangent plane}} to the surface $\symbfit{S}$ at the point $\symbfit{P}$ is defined to be the plane that contains both tangent lines $\symbfit{T_1}$ and $\symbfit{T_2}$. (See figure \ref{fig:tangent-plane})
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{images/tangent-plane.png}
+    \caption{Tangent Plane}
+    \label{fig:tangent-plane}
+\end{figure}
+\subsubsection{Derive the equation of a tangent plane}
+\begin{enumerate}
+    \item We know that any plane passing through the point $P(x_0,y_0,z_0)$ has an equation of the form:
+    \begin{displaymath}
+        A(x-x_0)+B(y-y_0)+C(z-z_0)=0
+    \end{displaymath}
+    \item By dividing this equation by $\symbfit{C}$ and letting $a=-A/C, b=-B/C$, we can write it in the form:
+    \begin{equation} \label{eq:plane-intermediate}
+        z-z_0=a(x-x_0)+b(y-y_0)
+    \end{equation}
+    \item If equation \eqref{eq:plane-intermediate} represents the tangent plane at $\symbfit{P}$, then its intersection with the plane $y=y_0$ must be the tangent line $\symbfit{T_1}$. Setting $y=y_0$ in Equation \eqref{eq:plane-intermediate} gives
+    \begin{displaymath}
+        z-z_0=a(x-x_0) ~~~\text{where}~ y=y_0
+    \end{displaymath}
+    \item We recognize this as the equation (in point-slope form) of a line with slope $\symbfit{a}$. But from beforehand (see this section about \ref{sec:geometric-meaing-of-first-order-partial-deri} the geometric meaning of first order partial derivatives), we know that the slope of the tangent line $T_1$ is $f_x(a,b)$. Therefore,
+    \begin{displaymath}
+        a=f_x(a,b)
+    \end{displaymath}
+    \item Similarly, we can get
+    \begin{displaymath}
+        b=f_y(a,b)
+    \end{displaymath}
+\end{enumerate}
+Now, let's see the {\color{red} \textbf{Equation of a Tangent Plane}}
+\begin{thmbox}{Equation of a Tangent plane}{tangent-plane-equation}
+    Suppose $\symbfit{f}$ has continuous partial derivatives. An equation of the tangent plane to the surface $z=f(x,y)$ at the point $P(x_0,y_0,z_0)$ is
+    \begin{displaymath}
+        z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)
+    \end{displaymath}
+\end{thmbox}
+\begin{notebox}
+    \begin{remark}
+        Note that the similarity between the equation of a tangent plane and the equation of a tangent line:
+        \begin{displaymath}
+            y-y_0=f'(x_0)(x-x_0)
+        \end{displaymath}
+        This will help you memorize the \nameref{thm:tangent-plane-equation}
+    \end{remark}
+\end{notebox}
+\subsubsection{Normal Vectors}
+It can be shown that vector
+\begin{displaymath}
+    \left[\begin{array}{c}
+        f_x(a,b) \\
+        f_y(a,b) \\
+        -1
+    \end{array}\right]
+\end{displaymath}
+is normal to the tangent plane at $\symbfit{P}$. And this vector is called the {\color{red} \textbf{Normal Vector}} of the tangent plane at $\symbfit{P}$. Wish this knowledge, we can get the vector equations of our tangent plane and normal line
+\begin{thmbox}{Tangent Plane (Vector Equation)}{tangent-plane-vector-equations}
+    A vector equation of the tangent plane at $\symbfit{P}$ is
+    \begin{displaymath}
+        \symbfit{r} \cdot \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+        =
+        \left[\begin{array}{c}
+             a \\
+             b \\
+             f(a,b)
+        \end{array}\right]
+        \cdot
+        \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+    \end{displaymath}
+\end{thmbox}
+\begin{thmbox}{Normal Lines}{normal lines}
+    The equation of the normal line at $\symbfit{P}$ (which is the line passing through $\symbfit{P}$ and perpendicular to the tangent plane) is
+    \begin{displaymath}
+        \symbfit{r} =
+        \left[\begin{array}{c}
+             a \\
+             b \\
+             f(a,b)
+        \end{array}\right]
+        +
+        \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+        t, ~~~t \in \symbfit{R}
+    \end{displaymath}
+\end{thmbox}
+\subsection{Linear Approximations}
+\begin{dfnbox}{Linearization}{Linearization}
+    The linear function whose graph is this tangent plane, namely
+    \begin{displaymath}
+        L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)
+    \end{displaymath}
+    is called a {\color{red} \textbf{linearization}} of $\symbfit{f}$ at $(a,b)$ and the approximation,
+    \begin{displaymath}
+        f(x,y) \approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)
+    \end{displaymath}
+    is called {\color{red} \textbf{linear approximation}} or the {\color{red} \textbf{tangent plane approximation}} of $\symbfit{f}$ at $(a,b)$.
+\end{dfnbox}
+\begin{notebox}
+    \begin{remark}
+        Note that the linear function $L(x,y)$ and the original function $\symbfit{f}$ are {\color{red} \textbf{not}} the same function!
+    \end{remark}
+\end{notebox}
+\subsection{Differentiable function of two variables}
+\begin{dfnbox}{Differentiable function of two variables}{differentiable-function-of-two-variables}
+    If $z=f(x,y)$, then $\symbfit{f}$ is {\color{red} \textbf{differentiable}} at $(a,b)$ if $\Delta z$ can be expressed in the form
+    \begin{displaymath}
+        \Delta z = f_x(a,b)\Delta x+f_y(a,b)\Delta y + \epsilon_1\Delta_x + \epsilon_2\Delta_y
+    \end{displaymath}
+    where $\epsilon_1$ and $\epsilon_2$ are functions of $\Delta_x$ and $\Delta_y$ such that $\epsilon_1$ and $\epsilon_2 \to 0$ as $(\Delta_x,\Delta_y) \to 0$
+\end{dfnbox}
+Sometimes it is hard to use the Definition of \nameref{dfn:differentiable-function-of-two-variables} to directly check the {\color{red} \textbf{differentiability}} of a function, but below provides a convenient {\color{red} \textbf{sufficient}} condition for differentiability.
+\begin{thmbox}{Differentiability Test}{differentiability-test}
+    If the partial derivatives $f_x$ and $f_y$ exist near $(a,b)$ and are continuous at (a,b), then $f$ is differentiable at $(a,b)$
+\end{thmbox}
+\subsection{Differentials}
+\begin{dfnbox}{Differential}{differential}
+    For a differential function of two variables, $z=f(x,y)$, we define the {\color{red} \textbf{differentials}} $dx$ and $dy$ to be independent variables; that is, they can be given any values. Then the {\color{red} \textbf{differential}} $dz$, also called the {\color{red} \textbf{total differential}}, is defined by
+    \begin{equation} \label{eq:two-varaibles-differentials}
+        dz=f_x(x,y)dx+f_y(x,y)dy=\frac{\partial z}{\partial x}\cdot dx+\frac{\partial z}{\partial y}\cdot dy
+    \end{equation}
+\end{dfnbox}
+\subsubsection{Geometric meaning of $dz$ and $\Delta z$}
+Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geometric interpretation of the differential $dz$ and the increment $\Delta z$: $dz$  represents the change in height of the tangent plane, whereas $\Delta z$ represents the change in height of the surface $z=f(x,y)$ when $(x,y)$ changes from $(a,b)$ to $(a+\Delta x, b+\Delta y)$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/geomertic-meaning-of-differential-two-variables.png}
+    \caption{Geometric Meaning of Differentials (Two variables)}
+    \label{fig:geomertic-meaning-of-differential-two-variables}
+\end{figure}
+\begin{exbox}{Use differentials to approximate}{differential-approximation}
+    \begin{enumerate}
+        \item If $z=f(x,y)=x^3+3xy-y^2$, find the differential $dz$
+        \item If $x$ changes from $2$ to $2.05$ and $y$ changes from $3$ to $2.96$, compare the values of $\Delta z$ and $dz$
+    \end{enumerate}
+    {\color{blue} Solution}:
+    \begin{enumerate}
+        \item Definition of $dz$ gives that
+        \begin{align*}
+            dz&=\frac{\partial z}{\partial x}\cdot dx+\frac{\partial z}{\partial y}\cdot dy \\
+            &=(2x+3y)\cdot dx+(3x-2y)\cdot dy  
+        \end{align*}
+        \item Putting $x=2, dx=\Delta x=0.05, y=3$ and $dy=\Delta y=-0.04$, we get
+        \begin{align*}
+            dz&=[2(2)+3(3)]\cdot 0.05+[3(2)-2(3)]\cdot (-0.04) \\
+            &=0.65
+        \end{align*}
+        The increment of $z$ is:
+        \begin{align*}
+            \Delta z &= f(2.05,2.96)-f(2,3) \\
+            &\approx0.6449
+        \end{align*}
+    \end{enumerate}
+    Notice that $\Delta z \approx dz$ but $dz$ is easier to compute.
+\end{exbox}
+\subsubsection{How to memorize}
+For a differential function of one variable, $y=f(x)$, we define the differential $dx$ to be an independent variable; that is $dx$ can be given the value of any real number. The differential of $y$ is then defined as:
+\begin{equation} \label{eq:one-variable-differential}
+    dy = f'(x)dx
+\end{equation}
+And its geometric interpretation can be shown in figure \ref{fig:geometric-meaning-of-differential-one-variable}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{images/geometric-meaning-of-differential-one-variable.png}
+    \caption{Geometric Meaning of Differential (One variable)}
+    \label{fig:geometric-meaning-of-differential-one-variable}
+\end{figure}
+We can compare Equation \eqref{eq:one-variable-differential} with \eqref{eq:two-varaibles-differentials}, so that we can memorize the two variables one easily.
 \end{document}
