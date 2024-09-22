@@ -259,6 +259,11 @@ $f_x(a,b)$ and $f_y(a,b)$ can be interpreted geometrically as the {\color{red} \
     \caption{Geometric Meaning of First order Partial Derivatives}
     \label{fig:geo-meaning-first-order-partial-derivative}
 \end{figure}
+\begin{notebox}
+    \begin{remark}
+        Note that \textbf{slopes} are numbers, so the first order partial derivative should be a \textit{number} as well, but this \textit{number} can be in real number form or in the expression form.
+    \end{remark}
+\end{notebox}
 \begin{exbox}{Implicit Partial Differentiation}{implicit-partial-diff}
     Find $\partial z / \partial x$ and $\partial z / \partial y$ if $\symbfit{z}$ is defined implicitly as a function of $\symbfit{x}$ and $\symbfit{y}$ by the equation
     \begin{displaymath}
@@ -335,9 +340,9 @@ For example, let $\symbfit{C_1}$ and $\symbfit{C_2}$ be the curves obtained by i
 Now, let's see the {\color{red} \textbf{Equation of a Tangent Plane}}
 \begin{thmbox}{Equation of a Tangent plane}{tangent-plane-equation}
     Suppose $\symbfit{f}$ has continuous partial derivatives. An equation of the tangent plane to the surface $z=f(x,y)$ at the point $P(x_0,y_0,z_0)$ is
-    \begin{displaymath}
+    \begin{equation} \label{eq:equation-of-tangent-plane-special}
         z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)
-    \end{displaymath}
+    \end{equation}
 \end{thmbox}
 \begin{notebox}
     \begin{remark}
@@ -348,56 +353,6 @@ Now, let's see the {\color{red} \textbf{Equation of a Tangent Plane}}
         This will help you memorize the \nameref{thm:tangent-plane-equation}
     \end{remark}
 \end{notebox}
-\subsubsection{Normal Vectors}
-It can be shown that vector
-\begin{displaymath}
-    \left[\begin{array}{c}
-        f_x(a,b) \\
-        f_y(a,b) \\
-        -1
-    \end{array}\right]
-\end{displaymath}
-is normal to the tangent plane at $\symbfit{P}$. And this vector is called the {\color{red} \textbf{Normal Vector}} of the tangent plane at $\symbfit{P}$. Wish this knowledge, we can get the vector equations of our tangent plane and normal line
-\begin{thmbox}{Tangent Plane (Vector Equation)}{tangent-plane-vector-equations}
-    A vector equation of the tangent plane at $\symbfit{P}$ is
-    \begin{displaymath}
-        \symbfit{r} \cdot \left[\begin{array}{c}
-             f_x(a,b) \\
-             f_y(a,b) \\
-             -1
-        \end{array}\right]
-        =
-        \left[\begin{array}{c}
-             a \\
-             b \\
-             f(a,b)
-        \end{array}\right]
-        \cdot
-        \left[\begin{array}{c}
-             f_x(a,b) \\
-             f_y(a,b) \\
-             -1
-        \end{array}\right]
-    \end{displaymath}
-\end{thmbox}
-\begin{thmbox}{Normal Lines}{normal lines}
-    The equation of the normal line at $\symbfit{P}$ (which is the line passing through $\symbfit{P}$ and perpendicular to the tangent plane) is
-    \begin{displaymath}
-        \symbfit{r} =
-        \left[\begin{array}{c}
-             a \\
-             b \\
-             f(a,b)
-        \end{array}\right]
-        +
-        \left[\begin{array}{c}
-             f_x(a,b) \\
-             f_y(a,b) \\
-             -1
-        \end{array}\right]
-        t, ~~~t \in \symbfit{R}
-    \end{displaymath}
-\end{thmbox}
 \subsection{Linear Approximations}
 \begin{dfnbox}{Linearization}{Linearization}
     The linear function whose graph is this tangent plane, namely
@@ -480,4 +435,402 @@ And its geometric interpretation can be shown in figure \ref{fig:geometric-meani
     \label{fig:geometric-meaning-of-differential-one-variable}
 \end{figure}
 We can compare Equation \eqref{eq:one-variable-differential} with \eqref{eq:two-varaibles-differentials}, so that we can memorize the two variables one easily.
+\section{Chain Rule and Implicit Differentiation}
+\subsection{Chain Rule with one Independent Variable}
+One Independent Variable means that, for example $z$ indirectly a function of $t$.
+\begin{thmbox}{Chain Rule (Case 1)}{chain-rule-case-1}
+    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$, where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$. Then $z$ is a differentiable function of $t$ and
+    \begin{align} 
+        \frac{dz}{dt}&=\frac{\partial f}{\partial x}\cdot \frac{dx}{dt}+\frac{\partial f}{\partial y}\cdot \frac{dy}{dt} \label{eq:chain-rule-case-1} \\ 
+        \xRightarrow{\partial f \to \partial z} &= \frac{\partial z}{\partial x}\cdot\frac{dx}{dt} +\frac{\partial z}{\partial y}\cdot \frac{dy}{dt}
+    \end{align}
+\end{thmbox}
+\begin{notebox}
+    \begin{remark}
+        Notice the similarity between \eqref{eq:chain-rule-case-1} and the definition of differentials of functions of two variables in \eqref{eq:two-varaibles-differentials}.
+    \end{remark}
+\end{notebox}
+\subsection{Chain Rule with two Independent Variable}
+Two Independent Variables means that, for example $z$ is indirectly a function of two variables, $s$ and $t$.
+\begin{thmbox}{Chain Rule (Case 2)}{chain-rule-case-2}
+    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$, where $x=g(s,t)$ and $y=h(s,t)$ are differentiable functions of $s$ and $t$, then
+    \begin{gather*}
+        \frac{\partial z}{\partial s}=\frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial s} \\
+        \frac{\partial z}{\partial t}=\frac{\partial z}{\partial t} \cdot \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial t}
+    \end{gather*}
+\end{thmbox}
+The following tree diagram may help you memorize this theorem.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/chain-rule.png}
+    \caption{Chain rule}
+    \label{fig:chain-rule}
+\end{figure}
+\subsection{Implicit Differentiation}
+\subsubsection{Single Independent Variable}
+$y=f(x)$ where $F(x,f(x))=0$, for all $x$ in the domain of $\symbfit{f}$. Using \nameref{thm:chain-rule-case-1} to differentiate both sides of $F(x,y)=0$, we will get
+\begin{displaymath}
+    \frac{\partial F}{\partial x} \cdot \frac{dx}{dx} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dx} = 0
+\end{displaymath}
+But $dx/dx = 1$, so if $\partial F / \partial y \neq 0$, we can obtain
+\begin{equation} \label{eq:single-variable-implicit-function-theorem}
+    \frac{dy}{dx} = - \frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}
+\end{equation}
+The equation \eqref{eq:single-variable-implicit-function-theorem} is called {\color{red} \textbf{Implicit Function Theorem}}
+\begin{exbox}{Implicit Function Theorem Example}{implicit-function-theorem-example}
+    Find $y'$ if $x^3+y^3=6xy$ \newline
+    {\color{blue} \textbf{Solution}}:
+    \begin{gather*}
+        F(x,y)=x^3+y^3-6xy \\
+        y'=\frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}
+    \end{gather*}
+\end{exbox}
+\subsubsection{Two Independent Variables}
+Use \nameref{thm:chain-rule-case-2} to differentiate both sides of $F(x,y,z)=0$
+\begin{displaymath}
+    \frac{\partial F}{\partial x} \cdot \frac{\partial x}{\partial x} + \frac{\partial F}{\partial y} \cdot \frac{\partial y}{\partial x} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} = 0
+\end{displaymath}
+But $\partial x / \partial x = 1$ and $\partial y / \partial x = 0$, so this equation becomes
+\begin{displaymath}
+    \frac{\partial F}{\partial x} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} = 0
+\end{displaymath}
+If $\partial F / \partial z \neq 0$, then we have
+\begin{equation} \label{eq:two-variables-implicit-function-theorem-1}
+    \frac{\partial z}{\partial x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial z}} = - \frac{F_x}{F_z}
+\end{equation}
+Similarly, we can get
+\begin{equation} \label{eq:two-variables-implicit-function-theorem-2}
+    \frac{\partial z}{\partial y} = -\frac{\frac{\partial F}{\partial y}}{\frac{\partial F}{\partial z}} = - \frac{F_y}{F_z}
+\end{equation}
+Equation \eqref{eq:two-variables-implicit-function-theorem-1} and equation \eqref{eq:two-variables-implicit-function-theorem-2} form the other part of {\color{red} \textbf{Implicit Function Theorem}}.
+\section{Directional Derivatives and the Gradient Vector}
+\subsection{Directional Derivatives}
+$f_x(x,y)$ and $f_y(x,y)$ give us the rate of change in the $x-$ and $y-$directions. But a {\color{red} \textbf{directional derivative}} enables us to find the rate of change of a function of two or more variables in {\color{red} \textbf{any direction}}.
+\subsubsection{Definition of Directional Derivatives}
+\begin{dfnbox}{Directional Derivative}{directional-derivative}
+    The {\color{red} \textbf{directional derivative}} of $\symbfit{f}$ at $(x_0,y_0)$ in the direction of a unit vector $\langle a,b \rangle$ is
+    \begin{equation}
+        D_uf(x_0,y_0)=\lim\limits_{h \to 0} \frac{f(x_0+ha, y_0+hb)-f(x_0,y_0)}{h}
+    \end{equation}
+    If $u=i=\langle 1,0 \rangle$, then $D_if=f_x$, if $u=j=\langle 0,1 \rangle$, then $D_jf=f_y$. In other words, the partial derivatives of $\symbfit{f}$ with regard to $x$ and $y$ are just special cases of the directional derivatives.
+\end{dfnbox}
+\subsubsection{Geometric meaning of Directional Derivatives}
+Suppose that we wish to o find the rate of change of $z$ at $x_0,y_0$ in the direction of an arbitrary unit vector $\symbfit{u}=\langle a,b \rangle$. To do this, we consider the surface $S$ with the equation $z=f(x,y)$ (the graph of $f$) and we let $z_0=f(x_0,y_0)$. Then, the point $P(x_0,y_0,z_0)$ lies on $S$. The vertical plane that passes through $P$ in the direction of $\symbfit{u}$ intersects $S$ in a curve $C$. (See Figure \ref{fig:geometric-meaing-of-directional-derivative}) The {\color{red} \textbf{slope}} of the tangent line $T$ to $C$ at the point $P$ is the rate of change of $z$ in the direction of $\symbfit{u}$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/geometric-meaing-of-directional-derivative.png}
+    \caption{Geometric Meaning of Directional Derivatives}
+    \label{fig:geometric-meaing-of-directional-derivative}
+\end{figure}
+\subsubsection{How to find the Directional Derivative}
+\begin{thmbox}{Find Directional Derivatives}{find-directional-derivatives}
+    If $\symbfit{f}$ is a differentiable function of $x$ and $y$, then $\symbfit{f}$ has a directional derivative in the direction of any unit vector $u=\langle a,b \rangle$ and
+    \begin{displaymath}
+        D_uf(x,y)=f_x(x,y)a+f_y(a,b)b
+    \end{displaymath}
+\end{thmbox}
+\textbf{Proof of theorem \ref{thm:find-directional-derivatives}}: \newline
+\begin{enumerate}
+    \item Define a function $g(h)=f(x_0+ha, y_0+hb)$
+    \item By the definition of a derivative, we have
+    \begin{align}
+        g'(0)&=\lim\limits_{h \to 0}\frac{g(h)-g(0)}{h} \\
+        &=\lim\limits_{h \to 0}\frac{f(x_0+ha, y_0+hb)-f(x_0,y_0)}{h} \\
+        &=D_uf(x_0,y_0) \label{eq:proof-direction-derivative-2}
+    \end{align}
+    \item On the other hand, we can write $g(h)=f(x,y)$ where $x=x_0+ha, y=y_0+hb$, so \nameref{thm:chain-rule-case-1} gives
+    \begin{align*}
+        g'(h)&=\frac{\partial f}{\partial x} \cdot \frac{dx}{dh} + \frac{\partial f}{\partial y]} \cdot \frac{dy}{dh} \\
+        &=f_x(x,y)a+f_y(x,y)b
+    \end{align*}
+    \item Put $h=0, x=x_0, y=y_0$, we get
+    \begin{equation} \label{eq:proof-directional-derivative-4}
+        g'(0)=f_x(x_0,y_0)a + f_y(x_0,y_0)b
+    \end{equation}
+    \item Compare equation \eqref{eq:proof-direction-derivative-2} and equation \eqref{eq:proof-directional-derivative-4}, we prove that
+    \begin{equation} \label{eq:directional-derivative-equation}
+        D_uf(x_0,y_0)=f_x(x_0,y_0)a+f_y(x_0,y_0)b
+    \end{equation}
+\end{enumerate}
+\subsection{Gradient Vector}
+\subsubsection{Definition of Gradient Vector}
+\begin{dfnbox}{Gradient Vector}{gradient-vector}
+    If $f$ is a function of two variables $x$ and $y$, then the {\color{red} \textbf{gradient}} of $f$ is the vector function $\nabla f$ (grad $f$, or read "del $f$") defined by,
+    \begin{displaymath}
+        \nabla f(x,y)=\langle f_x(x,y), f_y(x,y) \rangle = \frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j
+    \end{displaymath}
+\end{dfnbox}
+\begin{notebox}
+    \begin{remark}
+        Note that with the $\nabla f$, we can rewrite the directional derivative equation \eqref{eq:directional-derivative-equation} as,
+        \begin{equation}
+            D_uf(x,y)=\nabla f(x,y) \cdot \symbfit{u}
+        \end{equation}
+        Where $\symbfit{u}$ is a unit vector.
+    \end{remark}
+\end{notebox}
+\subsubsection{Maximizing the Directional Derivative}
+Suppose $f$ is a differentiable function of two or three variables. The maximum value of the directional derivative $D_uf(x)$ is $|\nabla f(x)|$ and it occurs when $\symbfit{u}$ has the same direction as the gradient vector $\nabla f(x)$.
+\begin{notebox}
+    \begin{remark}
+        Note that here $\symbfit{x}$ is a vector, and we use vector notation here.
+    \end{remark}
+\end{notebox}
+{\textbf{Proof}}: \newline
+Here we write the directional derivative at the point $(x_0, y_0)$ as the dot product, which will be
+\begin{equation} \label{eq:proof-maximizing-directional-derivative}
+    D_uf(x_0,y_0)=|\nabla f(x_0,y_0)| \cdot |u| \cdot cos(\theta)
+\end{equation}
+Where $\theta$ is the angle between vector $\nabla f$ and the unit vector $\symbfit{u}$. And since in the equation \eqref{eq:proof-maximizing-directional-derivative}, the only variable is $\theta$. We can quickly know that, max $cos(\theta)$ is 1. That means $\nabla f(x_0,y_0)$ has the same direction as the unit vector $\symbfit{u}$. Proof!
+\subsubsection{Geometric Meaning of Gradient Vector}
+Suppose $S$ is a surface with equation $F(x,y,z)=lk$, that is, it is a {\color{red} \textbf{level surface}} of function $F$ of {\color{red} \textbf{three}} variables, and let $P(x_0,y_0,z_0)$ be a point on $S$. Let $C$ be {\color{red} \textbf{any}} curve that lies on the surface $S$ and passes through the point $P$. We can describe the curve $C$ as a continuous vector function $r(t)=\langle x(t), y(t), z(t) \rangle$. Let $t_0$ be the parameter  value corresponding to $P$; that is $r(t_0)=\langle x_0, y_0, z_0 \rangle$. Since $C$ lies on $S$, any point $\langle x(t), y(t), z(t) \rangle$ must satisfy the equation of $S$, that is
+\begin{displaymath}
+    F(x(t), y(t), z(t))=k
+\end{displaymath}
+Use \nameref{thm:chain-rule-case-1} to differentiate both sides
+\begin{displaymath}
+    \frac{\partial F}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dt} + \frac{\partial F}{\partial z} \cdot \frac{dz}{dt} = 0
+\end{displaymath}
+But since, $\nabla F = \langle F_x, F_y, F_z \rangle$ and $r'(t) = \langle x'(t), y'(t), z'(t) \rangle$, so the above equation can be written as
+\begin{displaymath}
+    \nabla F \cdot r'(t) = 0
+\end{displaymath}
+In particular, when $t=t_0$, we have
+\begin{equation} \label{eq:geometric-meaning-of-gradient-vector}
+    \nabla F(x_0,y_0,z_0) \cdot r'(t_0) = 0
+\end{equation}
+This equation \eqref{eq:geometric-meaning-of-gradient-vector} says that the gradient vector at $P$, which is $\nabla F(x_0,y_0,z_0)$ is perpendicular to the {\color{red} \textbf{tangent vector}} $r'(t_0)$ to {\color{red} \textbf{any}} curve $C$ on $S$ that passes through $P$. If $\nabla F(x_0,y_0,z_0) \neq 0$, it is therefore natural to define the {\color{red} \textbf{tangent plane}} to the level surface $F(x,y,z) = k$ at $P(x_0,y_0,z_0)$ as the plane that
+\begin{enumerate}
+    \item passes through $P$
+    \item and has the normal vector $\nabla F(x_0,y_0,z_0)$
+\end{enumerate}
+Thus, the equation of the tangent plane can be written as:
+\begin{equation} \label{eq:equation-of-tangent-planes-general}
+    F_x(x_0,y_0,z_0)(x-x_0) + F_y(x_0,y_0,z_0)(y-y_0) +F_z(x_0,y_0,z_0)(z-z_0) = 0
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/geometric-meaing-of-gradient-vector.png}
+    \caption{Geometric Meaning of Gradient Vector}
+    \label{fig:geometric-meaing-of-gradient-vector}
+\end{figure}
+Now, we can define the {\color{red} \textbf{normal line}} to $S$ at $P$ to be the line passing through $P$ and perpendicular to the tangent plane. The direction of the normal line is therefore given by the gradient vector $\nabla F(x_0,y_0,z_0)$ and so, its symmetric equations are
+\begin{displaymath}
+    \frac{x-x_0}{F_x(x_0,y_0,z_0)} = \frac{y-y_0}{F_y(x_0,y_0,z_0)} = \frac{z-z_0}{F_z(x_0,y_0,z_0)}
+\end{displaymath}
+\subsubsection{Significance of Gradient Vectors}
+Let $f$ be a differentiable function of two or three variables and suppose that $\nabla f(x) \neq 0$ (Here $\symbfit{x}$ is a vector)
+\begin{enumerate}
+    \item The directional derivative of $f$ at $x$ in the direction of a unit vector $\symbfit{u}$ is given by $D_uf(x)=\nabla f(x) \cdot \symbfit{u}$
+    \item $\nabla f(x)$ points in the direction of maximum rate of increase of $f$ at $x$, and the maximum rate of change of $f$ is $|\nabla f(x)|$
+    \item $\nabla f(x)$ is perpendicular to the {\color{red} \textbf{level curve or level surface}} of $f$ through $x$ \label{}
+\end{enumerate}
+\begin{notebox}
+    \begin{remark}
+    Notice the following important points:
+        \begin{enumerate}
+            \item Point 3 is also known as the {\color{red} \textbf{Geometric Meaning of Gradient Vectors}} (according to equation \eqref{eq:geometric-meaning-of-gradient-vector}).
+            \item Using the point 3 to understand stand point 2 makes it more intuitive.
+            \item In point 3, note that it is not the graph, but the level surface or level curve. But sometimes we can think the graph as level $\cdots$ by increasing $\R^n$ to $\R^{n+1}$
+        \end{enumerate}
+    \end{remark}
+\end{notebox}
+\subsubsection{Extend Tangent Planes}
+Since we have derived a general equation \eqref{eq:equation-of-tangent-planes-general} for tangent plane. We may wonder whether the equation \eqref{eq:equation-of-tangent-plane-special} we have derived before still applies or not. Let's try to verify that. \newline
+In the special case in which the equation of a surface $S$ is of the form $z=f(x,y)$ (that is $f$ is the graph of a function $f$ of two variables), we can rewrite the equation as
+\begin{displaymath}
+    F(x,y,z)=f(x,y)-z=0
+\end{displaymath}
+and regard $S$ as a {\color{red} \textbf{level surface}} (with $k=0$) of $F$. Then
+\begin{gather*}
+    F_x(x_0,y_0,z_0)=f_x(x_0,y_0) \\
+    F_y(x_0,y_0,z_0)=f_y(x_0,y_0) \\
+    F_z(x_0,y_0,z_0)=-1 
+\end{gather*}
+Substitute these into equation \eqref{eq:equation-of-tangent-planes-general}, we get,
+\begin{displaymath}
+    f_x(x_o,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)-(z-z_0)=0
+\end{displaymath}
+which is equivalent to the equation \eqref{eq:equation-of-tangent-plane-special} we have derived before. Thus, our new, more general definition(equation) \eqref{eq:equation-of-tangent-planes-general} of a tangent plane is consistent with the definition(equation) that was given for the special case before.
+\subsubsection{Normal Vectors under the special case tangent planes}
+With the knowledge of gradient vectors, we can easily get the normal vector of the special case tangent plane (where the original function $f$ is a function of two variables) as below,
+\begin{displaymath}
+    \left[\begin{array}{c}
+        f_x(a,b) \\
+        f_y(a,b) \\
+        -1
+    \end{array}\right]
+\end{displaymath}
+is normal to the tangent plane at $P(a,b,f(a,b))$. And this vector is called the {\color{red} \textbf{Normal Vector}} of the tangent plane at $P(a,b,f(a,b))$. With this knowledge, we can get the vector equations of our tangent plane and normal line
+\begin{thmbox}{Tangent Plane (Vector Equation)}{tangent-plane-vector-equations}
+    A vector equation of the tangent plane at $\symbfit{P}$ is
+    \begin{displaymath}
+        \symbfit{r} \cdot \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+        =
+        \left[\begin{array}{c}
+             a \\
+             b \\
+             f(a,b)
+        \end{array}\right]
+        \cdot
+        \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+    \end{displaymath}
+\end{thmbox}
+\begin{thmbox}{Normal Lines (Vector Equation)}{normal lines}
+    The equation of the normal line at $\symbfit{P}$ (which is the line passing through $\symbfit{P}$ and perpendicular to the tangent plane) is
+    \begin{displaymath}
+        \symbfit{r} =
+        \left[\begin{array}{c}
+             a \\
+             b \\
+             f(a,b)
+        \end{array}\right]
+        +
+        \left[\begin{array}{c}
+             f_x(a,b) \\
+             f_y(a,b) \\
+             -1
+        \end{array}\right]
+        t, ~~~t \in \symbfit{R}
+    \end{displaymath}
+\end{thmbox}
+\section{Maximum and Minimum Values}
+\subsection{Local Maximum and Local Minimum Values}
+\begin{thmbox}{Local Maximum or local minimum test}{local-maximum-minimum-test}
+    If $f$ has a local maximum or minimum at $(a,b)$ and the first-order partial derivatives of $f$ exist there, then
+    \begin{displaymath}
+        f_x(a,b)=0 ~~~\text{and}~~~ f_y(a,b)=0
+    \end{displaymath}
+\end{thmbox}
+\begin{notebox}
+    \begin{remark}
+        Note that using the gradient vector, the \nameref{thm:local-maximum-minimum-test} can be written as
+        \begin{displaymath}
+            \nabla f(a,b)=0
+        \end{displaymath}
+    \end{remark}
+\end{notebox}
+\subsubsection{Critical Point}
+Extending our definition of critical point in single variable function, now let's extend our definition of critical points.
+\begin{dfnbox}{Critical Point}{critical-point}
+    A point $(a,b)$ is called a {\color{red} \textbf{critical point}} (or stationary point) of $f$ if
+    \begin{enumerate}
+        \item $f_x(a,b)=0$ and $f_y(a,b)=0$
+        \item {\color{red} \textbf{or}} if one of these partial derivatives does not exist
+    \end{enumerate}
+\end{dfnbox}
+\subsubsection{Saddle Point}
+\begin{dfnbox}{Saddle Point}{saddle-point}
+    If point $(a,b)$ is a \nameref{dfn:critical-point}, but $f(a,b)$ is neither a local maximum nor a local minimum, then point $(a,b)$ is called a {\color{red} \textbf{saddle point}}.
+\end{dfnbox}
+\subsubsection{Second Derivative Test}
+Similar to the first derivative test that we use in single variable differentiation to indicate the local maximum/minimum information about a function. We also have a similar test called {\color{red} \textbf{Second Derivative Test}} to indicate the local maximum/minimum information about a function with two independent variables.
+\begin{thmbox}{Second Derivative Test}{second-derivative-test}
+    Suppose the second partial derivatives of $f$ are continuous on a disk with center $(a,b)$, and suppose that $f_x(a,b)=0$ and $f_y(a,b)=0$ [so $(a,b)$ is a critical point of $f$]. Let
+    \begin{displaymath}
+        D=D(a,b)=f_{xx}(a,b)f_{yy}(a,b)-[f_{xy}(a,b)]^2
+    \end{displaymath}
+    \begin{enumerate}
+        \item If $D>0$ and $f_{xx}(a,b)>0$, then $f(a,b)$ is a {\color{red} \textbf{local minimum}}.
+        \item If $D>0$ and $f_{xx}(a,b)<0$, then $f(a,b)$ is a {\color{red} \textbf{local maximum}}.
+        \item If $D<0$, then $(a,b)$ is a {\color{red} \textbf{saddle point}} of $f$.
+    \end{enumerate}
+\end{thmbox}
+\begin{notebox}
+    \begin{remark}
+        Note:
+        \begin{enumerate}
+            \item If $D=0$, the test gives no information: $f$ could have a local maximum or local minimum at $(a,b)$ or $(a,b)$ could be a saddle point of $f$.
+            \item To remember the formula for $D$, it's helpful to write it as a determinant:
+            \begin{displaymath}
+                D =
+                \begin{vmatrix}
+                    f_{xx} & f_{xy} \\
+                    f_{xy} & f_{yy}
+                \end{vmatrix}
+                = f_{xx}f_{yy} - (f_{xy})^2
+            \end{displaymath}
+        \end{enumerate}
+    \end{remark}
+\end{notebox}
+\subsection{Absolute Maximum and Minimum Values}
+Before we talk about it, let's look at two important concepts, {\color{red} \textbf{Closed Set}} and {\color{red} \textbf{Boundary Points}}
+\subsubsection{Closed set}
+\begin{dfnbox}{Closed Set}{closed-set}
+    A {\color{red} \textbf{closed set}} in $\R^2$ is one that contains {\color{red} \textbf{all}} its \nameref{dfn:boundary-points}.
+\end{dfnbox}
+\subsubsection{Boundary Points}
+\begin{dfnbox}{Boundary Points}{boundary-points}
+    A {\color{red} \textbf{boundary point}} of $D$ is a point $(a,b)$ such that {\color{red} \textbf{every disk}} with center $(a,b)$ contains points in $D$ and also points not in $D$.
+\end{dfnbox}
+\begin{exbox}{Find boundary points}{find-boundary-points}
+    $D=\{(x,y)\mid x^2+y^2 \leq 1\}$. Find its boundary points. \newline
+    {\color{blue} \textbf{Solution}}: The points on the circle $x^2+y^2=1$ are all its boundary points.
+\end{exbox}
+This figure \ref{} shows the some examples of \nameref{dfn:closed-set}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/closed-set-examples.png}
+    \caption{Closed Sets and Not Closed Sets}
+    \label{fig:closed-sets-example}
+\end{figure}
+\subsubsection{Extreme Value Theorem for Functions of Two variables}
+Now, we can extend the extreme value theorem to functions of two variables.
+\begin{thmbox}{Extreme Value Theorem (Functions of Two variables)}{evt-for-functions-of-two}
+    If $f$ is continuous on a {\color{red} \textbf{closed, bounded set}} $D$ in $\R^2$, then $f$ attains an absolute maximum value $f(x_1,y_1)$ and an absolute minimum value $f(x_2,y_2)$ at some points $(x_1,y_1)$ and $(x_2,y_2)$ in $D$.  
+\end{thmbox}
+\subsubsection{Strategy to find absolute maximum/minimum values of a continuous functions $f$ on a closed, bounded set $D$}
+\begin{enumerate}
+    \item Find the values of $f$ at the {\color{red} \textbf{critical points}} of $f$ in $D$
+    \item Find the extreme values of $f$ on the {\color{red} \textbf{boundary}} of $D$
+    \item The largest of the values from steps 1 and 2 is the absolute maximum value; the smallest of these values is the absolute minimum values.
+\end{enumerate}
+\section{Lagrange Multipliers}
+Sometimes we want to find the maximum/minimum value of a function under some constraint. This kind of problem is called \textbf{constrained optimized problem}. We may use the idea of \textit{eliminating variables} to solve this kind of question, but it is kind of tedious. And the following is an alternative approach to solving constrained optimization problems.
+\subsection{One Constraint}
+\subsubsection{Geometric Basis}
+Let's start by trying to find the extreme values of $f(x,y)$ subject to a constraint of the form $g(x,y)=k$. In other words, we seek the extreme values of $f(x,y)$ when the point $(x,y)$ is restricted to lie on the level curve $g(x,y)=k$. Figure \ref{fig:geometric-meaning-lagrange-multiplier} shows this curve together with several level curves of $f$. These have the equations $f(x,y)=c$ where $c=7,8,9,10,11$. To maximize $f(x,y)$ subject to $g(x,y)=k$ is to find the largest value of $c$ such that the level curve $f(x,y)=c$ intersects $g(x,y)=k$. It appears from Figure \ref{fig:geometric-meaning-lagrange-multiplier} that this happens when these curves just touch each other, that is, when they have a common tangent line. (Otherwise, the value of $c$ could be increased further.) This means that the normal lines at the point $(x_0,y_0)$ where they touch are identical. So the gradient vectors are parallel; that is
+\begin{displaymath}
+    \nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)
+\end{displaymath}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/geometric-meaning-lagrange-multiplier.png}
+    \caption{Geometric Meaning of Lagrange Multipliers}
+    \label{fig:geometric-meaning-lagrange-multiplier}
+\end{figure}
+\begin{notebox}
+    \begin{remark}
+        Note that both the {\color{blue} \textbf{blue}} lines and {\color{red} \textbf{red}} lines in the figure \ref{fig:geometric-meaning-lagrange-multiplier} are the {\color{red} \textbf{level curves}} of the original functions $f(x,y)$ and $g(x,y)$. And the reason we do {\color{red} \textbf{level curves}} is that we want to find the value of $x$ and $y$ that enable us to achieve the maximum/minimum value. Under this circumstance, {\color{red} \textbf{level curves}} of the graphs of these two functions are the most useful.
+    \end{remark}
+\end{notebox}
+\subsubsection{Method of Lagrange Multipliers}
+\begin{thmbox}{Method of Lagrange Multipliers}{method-of-lagrange-multipliers}
+    To find the maximum and minimum values of $f(x,y,z)$ subject to the constraint $g(x,y,z)=k$ [assuming that these extreme values exist and $\nabla g \neq 0$ on the surface $g(x,y,z)=k$]:
+    \begin{enumerate}
+        \item Find all values of $x,y,z$ and $\lambda$ such that
+        \begin{displaymath}
+            \nabla f(x,y,z) = \lambda \nabla g(x,y,z)
+        \end{displaymath}
+        and
+        \begin{displaymath}
+            g(x,y,z)=k
+        \end{displaymath}
+        \item Evaluate $f$ at all the points $(x,y,z)$ that result from step 1. The largest of these values is the maximum value of $f$; the smallest is the minimum of $f$.
+    \end{enumerate}
+\end{thmbox}
+\subsection{Two Constraints}
+We only need to modify our \nameref{thm:method-of-lagrange-multipliers} into
+\begin{displaymath}
+    \nabla f(x,y,z)=\lambda \nabla g(x,y,z) + \mu \nabla h(x,y,z)
+\end{displaymath}
+and let the two constraints satisfy simultaneously.
 \end{document}
