@@ -84,15 +84,15 @@ Now, let's see an example about how the graph for a function of two variables lo
     \end{remark}
 \end{notebox}
 \subsection{Level Curves}
-\begin{dfnbox}{Level Curve}{levelcurve}
+\begin{dfnbox}{Level Curve}{level-curve}
     The {\color{red} \textbf{level curves}} of a function $\symbfit{f}$ of two variables are the curves with equations $f(x,y)=\symbfit{k}$, where $\symbfit{k}$ is a constant (in the range of $\symbfit{f}$).
 \end{dfnbox}
 \begin{notebox}
     \begin{remark}
-        From the definition of \nameref{dfn:levelcurve}, we should notice that a {\color{red} \textbf{level curve}} is the set of points in the domain of $\symbfit{f}$ at which $\symbfit{f}$ takes on a given value $\symbfit{k}$. In other words, it is a curve in {\color{red} $\symbfit{xy}$-plane} that shows where the graph of $\symbfit{f}$ has height $\symbfit{k}$ (above or below the $\symbfit{xy}$-plane).
+        From the definition of \nameref{dfn:level-curve}, we should notice that a {\color{red} \textbf{level curve}} is the {\color{red} \textbf{set}} of points in the domain of $\symbfit{f}$ at which $\symbfit{f}$ takes on a given value $\symbfit{k}$. In other words, it is a curve in {\color{red} $\symbfit{xy}$-plane} that shows where the graph of $\symbfit{f}$ has height $\symbfit{k}$ (above or below the $\symbfit{xy}$-plane).
     \end{remark}
 \end{notebox}
-\begin{exbox}{Find Level Curves}{findlevelcurves}
+\begin{exbox}{Find Level Curves}{find-level-curves}
     Sketch the level curves of the function $f(x,y)=6-3x-2y$ for the values $k=-6,0,6,12$ \newline
     {\color{blue} \textbf{Solution}}: We just need to solve $6-3x-2y=k$, where $k=-6,0,6,12$. And then we will get four equations of line. We just need to plot these four lines out.
     \begin{figure}[H]
@@ -103,9 +103,24 @@ Now, let's see an example about how the graph for a function of two variables lo
     \end{figure}
     In this example, we have a function of two variables and its graph should be in $\R^3$, but since we need to find its level curves. To find level curves, we need to decrease the dimension by 1, so its level curves are in $\R^2$.
 \end{exbox}
+Now, let's see another example to appreciate the use of word {\color{red} \textbf{set}} in the definition of \nameref{dfn:level-curve}.
+\begin{exbox}{Level Curve for Single Variable Function}{level-curve-for-single-variable-function}
+    Show the level curve of the function $f(x)=x^2$ for the values of $k=0, 4$ \newline
+    {\color{blue} \textbf{Solution}}: We just need to set $x^2=k$, where $k=0, 4$. Solve that ,we will find we $x=0, \pm 2$ and let's draw it on the $x$-axis.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{images/level-curve-example-2.png}
+        \caption{Level Curve for Single Variable Function}
+        \label{fig:level-curve-for-single-variable-function}
+    \end{figure}
+    From here, we see that our solution are only \textbf{three} points. And if you refer to the definition of \nameref{dfn:level-curve}, we can form our level curse as
+    \begin{displaymath}
+        \{x \mid x=0,\pm 2\}
+    \end{displaymath}
+\end{exbox}
 \subsection{Contour Curves}
 In the functions of two variables, we've seen that its level curves must be in $\R^2$. But thinking it deeply, how does level curves come? Basically, it is the projection of \textbf{contour curves} onto the $\symbfit{xy}$-plane. So, what is the \textbf{contour plane}?
-\begin{dfnbox}{Contour Curve}{contourcurve}
+\begin{dfnbox}{Contour Curve}{contour-curve}
     For a function of two variables, denoted by $z=f(x,y)$. A horizontal plane $z=k$ may or may not intersect with the graph of $\symbfit{f}$ along a curve. If the curve exists, we say that the curve is a {\color{red} \textbf{contour curve of height $k$}}. If not, we say the contour curve doesn't exist at height $k$ for the function $\symbfit{f}$.
 \end{dfnbox}
 To visual it more directly, let's see the example below
@@ -515,7 +530,7 @@ $f_x(x,y)$ and $f_y(x,y)$ give us the rate of change in the $x-$ and $y-$directi
     If $u=i=\langle 1,0 \rangle$, then $D_if=f_x$, if $u=j=\langle 0,1 \rangle$, then $D_jf=f_y$. In other words, the partial derivatives of $\symbfit{f}$ with regard to $x$ and $y$ are just special cases of the directional derivatives.
 \end{dfnbox}
 \subsubsection{Geometric meaning of Directional Derivatives}
-Suppose that we wish to o find the rate of change of $z$ at $x_0,y_0$ in the direction of an arbitrary unit vector $\symbfit{u}=\langle a,b \rangle$. To do this, we consider the surface $S$ with the equation $z=f(x,y)$ (the graph of $f$) and we let $z_0=f(x_0,y_0)$. Then, the point $P(x_0,y_0,z_0)$ lies on $S$. The vertical plane that passes through $P$ in the direction of $\symbfit{u}$ intersects $S$ in a curve $C$. (See Figure \ref{fig:geometric-meaing-of-directional-derivative}) The {\color{red} \textbf{slope}} of the tangent line $T$ to $C$ at the point $P$ is the rate of change of $z$ in the direction of $\symbfit{u}$.
+Suppose that we wish to o find the rate of change of $z$ at $(x_0,y_0)$ in the direction of an arbitrary unit vector $\symbfit{u}=\langle a,b \rangle$. To do this, we consider the surface $S$ with the equation $z=f(x,y)$ (the graph of $f$) and we let $z_0=f(x_0,y_0)$. Then, the point $P(x_0,y_0,z_0)$ lies on $S$. The vertical plane that passes through $P$ in the direction of $\symbfit{u}$ intersects $S$ in a curve $C$. (See Figure \ref{fig:geometric-meaing-of-directional-derivative}) The {\color{red} \textbf{slope}} of the tangent line $T$ to $C$ at the point $P$ is the rate of change of $z$ in the direction of $\symbfit{u}$. It is called the {\color{red} \textbf{directional derivative}} in the direction of the unit vector $\symbfit{u}$ 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{images/geometric-meaing-of-directional-derivative.png}
@@ -526,7 +541,7 @@ Suppose that we wish to o find the rate of change of $z$ at $x_0,y_0$ in the dir
 \begin{thmbox}{Find Directional Derivatives}{find-directional-derivatives}
     If $\symbfit{f}$ is a differentiable function of $x$ and $y$, then $\symbfit{f}$ has a directional derivative in the direction of any unit vector $u=\langle a,b \rangle$ and
     \begin{displaymath}
-        D_uf(x,y)=f_x(x,y)a+f_y(a,b)b
+        D_uf(x,y)=f_x(x,y)a+f_y(x,y)b
     \end{displaymath}
 \end{thmbox}
 \textbf{Proof of theorem \ref{thm:find-directional-derivatives}}: \newline
