@@ -276,7 +276,11 @@ $f_x(a,b)$ and $f_y(a,b)$ can be interpreted geometrically as the {\color{red} \
 \end{figure}
 \begin{notebox}
     \begin{remark}
-        Note that \textbf{slopes} are numbers, so the first order partial derivative should be a \textit{number} as well, but this \textit{number} can be in real number form or in the expression form.
+        Note that:
+        \begin{enumerate}
+            \item \textbf{slopes} are numbers, so the first order partial derivative should be a \textit{number} as well, but this \textit{number} can be in real number form or in the expression form.
+            \item Get know of the first order partial derivatives (slopes/numbers) will give us an approximate view about how the dependent variable will change according to the change in the independent variables. See more at \nameref{dfn:differential}.
+        \end{enumerate}
     \end{remark}
 \end{notebox}
 \begin{exbox}{Implicit Partial Differentiation}{implicit-partial-diff}
@@ -399,22 +403,27 @@ Sometimes it is hard to use the Definition of \nameref{dfn:differentiable-functi
 \end{thmbox}
 \subsection{Differentials}
 \begin{dfnbox}{Differential}{differential}
-    For a differential function of two variables, $z=f(x,y)$, we define the {\color{red} \textbf{differentials}} $dx$ and $dy$ to be independent variables; that is, they can be given any values. Then the {\color{red} \textbf{differential}} $dz$, also called the {\color{red} \textbf{total differential}}, is defined by
+    For a differential function of two variables, $z=f(x,y)$, we define the {\color{red} \textbf{differentials}} $\mathrm d x$ and $\mathrm d y$ to be independent variables; that is, they can be given any values. Then the {\color{red} \textbf{differential}} $\mathrm d z$, also called the {\color{red} \textbf{total differential}}, is defined by
     \begin{equation} \label{eq:two-varaibles-differentials}
-        dz=f_x(x,y)dx+f_y(x,y)dy=\frac{\partial z}{\partial x}\cdot dx+\frac{\partial z}{\partial y}\cdot dy
+        \mathrm d z=f_x(x,y)\mathrm d x+f_y(x,y)\mathrm d y=\frac{\partial z}{\partial x}\cdot \mathrm d x+\frac{\partial z}{\partial y}\cdot \mathrm d y
     \end{equation}
 \end{dfnbox}
 \begin{notebox}
     \begin{remark}
-        $dx$ and $dy$ are independent variables means that they represent the change of value in $x$ and $y$ since in your function, $x$ and $y$ are independent variables, you change $x$ and $y$ to change your $z$ accordingly.
+        $\mathrm d x$ and $\mathrm d y$ are independent variables means that they represent the change of value in $x$ and $y$ since in your function, $x$ and $y$ are independent variables, you change $x$ and $y$ to change your $z$ accordingly.
     \end{remark}
 \end{notebox}
-\subsubsection{Geometric meaning of $dz$ and $\Delta z$}
-Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geometric interpretation of the differential $dz$ and the increment $\Delta z$:
+\subsubsection{Geometric meaning of $\mathrm d z$ and $\Delta z$}
+Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geometric interpretation of the differential $\mathrm d z$ and the increment $\Delta z$:
 \begin{enumerate}
-    \item $dz$  represents the change in height of the tangent plane, which basically means when you change $x$ with amount of $dx$, then $z$ will change the amount of $(\partial z / \partial x) \cdot dx$. Similarly, when you change $y$ with amount of $dy$, your $z$ will also be changed for the amount of $(\partial z / \partial y) \cdot dy$. And the total changing amount $dz$ is just the sum of the two previous changes.
+    \item $\mathrm d z$  represents the change in height of the tangent plane, which basically means when you change $x$ with amount of $\mathrm d x$, then $z$ will change the amount of $(\partial z / \partial x) \cdot \mathrm d x$. Similarly, when you change $y$ with amount of $\mathrm d y$, your $z$ will also be changed for the amount of $(\partial z / \partial y) \cdot \mathrm d y$. And the total changing amount $\mathrm d z$ is just the sum of the two previous changes.
     \item $\Delta z$ represents the change in height of the surface $z=f(x,y)$ when $(x,y)$ changes from $(a,b)$ to $(a+\Delta x, b+\Delta y)$
 \end{enumerate}
+\begin{notebox}
+    \begin{remark}
+        $\mathrm d z$ is the approximation of the real change $\Delta z$
+    \end{remark}
+\end{notebox}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{images/geomertic-meaning-of-differential-two-variables.png}
@@ -423,19 +432,19 @@ Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geome
 \end{figure}
 \begin{exbox}{Use differentials to approximate}{differential-approximation}
     \begin{enumerate}
-        \item If $z=f(x,y)=x^3+3xy-y^2$, find the differential $dz$
-        \item If $x$ changes from $2$ to $2.05$ and $y$ changes from $3$ to $2.96$, compare the values of $\Delta z$ and $dz$
+        \item If $z=f(x,y)=x^3+3xy-y^2$, find the differential $\mathrm d z$
+        \item If $x$ changes from $2$ to $2.05$ and $y$ changes from $3$ to $2.96$, compare the values of $\Delta z$ and $\mathrm d z$
     \end{enumerate}
     {\color{blue} Solution}:
     \begin{enumerate}
-        \item Definition of $dz$ gives that
+        \item Definition of $\mathrm d z$ gives that
         \begin{align*}
-            dz&=\frac{\partial z}{\partial x}\cdot dx+\frac{\partial z}{\partial y}\cdot dy \\
-            &=(2x+3y)\cdot dx+(3x-2y)\cdot dy  
+            \mathrm d z&=\frac{\partial z}{\partial x}\cdot \mathrm d x+\frac{\partial z}{\partial y}\cdot \mathrm d y \\
+            &=(2x+3y)\cdot \mathrm d x+(3x-2y)\cdot \mathrm d y  
         \end{align*}
-        \item Putting $x=2, dx=\Delta x=0.05, y=3$ and $dy=\Delta y=-0.04$, we get
+        \item Putting $x=2, \mathrm d x=\Delta x=0.05, y=3$ and $\mathrm d y=\Delta y=-0.04$, we get
         \begin{align*}
-            dz&=[2(2)+3(3)]\cdot 0.05+[3(2)-2(3)]\cdot (-0.04) \\
+            \mathrm d z&=[2(2)+3(3)]\cdot 0.05+[3(2)-2(3)]\cdot (-0.04) \\
             &=0.65
         \end{align*}
         The increment of $z$ is:
@@ -444,12 +453,12 @@ Figure \ref{fig:geomertic-meaning-of-differential-two-variables} shows the geome
             &\approx0.6449
         \end{align*}
     \end{enumerate}
-    Notice that $\Delta z \approx dz$ but $dz$ is easier to compute.
+    Notice that $\Delta z \approx \mathrm d z$ but $\mathrm d z$ is easier to compute.
 \end{exbox}
 \subsubsection{How to memorize}
-For a differential function of one variable, $y=f(x)$, we define the differential $dx$ to be an independent variable; that is $dx$ can be given the value of any real number. The differential of $y$ is then defined as:
+For a differential function of one variable, $y=f(x)$, we define the differential $\mathrm d x$ to be an independent variable; that is $\mathrm d x$ can be given the value of any real number. The differential of $y$ is then defined as:
 \begin{equation} \label{eq:one-variable-differential}
-    dy = f'(x)dx
+    \mathrm d y = f'(x)\mathrm d x
 \end{equation}
 And its geometric interpretation can be shown in figure \ref{fig:geometric-meaning-of-differential-one-variable}
 \begin{figure}[H]
@@ -465,8 +474,8 @@ One Independent Variable means that, for example $z$ indirectly a function of $t
 \begin{thmbox}{Chain Rule (Case 1)}{chain-rule-case-1}
     Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$, where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$. Then $z$ is a differentiable function of $t$ and
     \begin{align} 
-        \frac{dz}{dt}&=\frac{\partial f}{\partial x}\cdot \frac{dx}{dt}+\frac{\partial f}{\partial y}\cdot \frac{dy}{dt} \label{eq:chain-rule-case-1} \\ 
-        \xRightarrow{\partial f \to \partial z} &= \frac{\partial z}{\partial x}\cdot\frac{dx}{dt} +\frac{\partial z}{\partial y}\cdot \frac{dy}{dt}
+        \frac{\mathrm d z}{\mathrm d t}&=\frac{\partial f}{\partial x}\cdot \frac{\mathrm d x}{\mathrm d t}+\frac{\partial f}{\partial y}\cdot \frac{\mathrm d y}{\mathrm d t} \label{eq:chain-rule-case-1} \\ 
+        \xRightarrow{\partial f \to \partial z} &= \frac{\partial z}{\partial x}\cdot\frac{\mathrm d x}{\mathrm d t} +\frac{\partial z}{\partial y}\cdot \frac{\mathrm d y}{\mathrm d t}
     \end{align}
 \end{thmbox}
 \begin{notebox}
@@ -494,11 +503,11 @@ The following tree diagram may help you memorize this theorem.
 \subsubsection{Single Independent Variable}
 $y=f(x)$ where $F(x,f(x))=0$, for all $x$ in the domain of $\symbfit{f}$. Using \nameref{thm:chain-rule-case-1} to differentiate both sides of $F(x,y)=0$, we will get
 \begin{displaymath}
-    \frac{\partial F}{\partial x} \cdot \frac{dx}{dx} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dx} = 0
+    \frac{\partial F}{\partial x} \cdot \frac{\mathrm d x}{\mathrm d x} + \frac{\partial F}{\partial y} \cdot \frac{\mathrm d y}{\mathrm d x} = 0
 \end{displaymath}
-But $dx/dx = 1$, so if $\partial F / \partial y \neq 0$, we can obtain
+But $\mathrm d x/\mathrm d x = 1$, so if $\partial F / \partial y \neq 0$, we can obtain
 \begin{equation} \label{eq:single-variable-implicit-function-theorem}
-    \frac{dy}{dx} = - \frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}
+    \frac{\mathrm d y}{\mathrm d x} = - \frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}
 \end{equation}
 The equation \eqref{eq:single-variable-implicit-function-theorem} is called {\color{red} \textbf{Implicit Function Theorem}}
 \begin{exbox}{Implicit Function Theorem Example}{implicit-function-theorem-example}
@@ -506,7 +515,7 @@ The equation \eqref{eq:single-variable-implicit-function-theorem} is called {\co
     {\color{blue} \textbf{Solution}}:
     \begin{gather*}
         F(x,y)=x^3+y^3-6xy \\
-        y'=\frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}
+        y'=\frac{\mathrm d y}{\mathrm d x}=-\frac{F_x}{F_y}=-\frac{3x^2-6y}{3y^2-6x}=-\frac{x^2-2y}{y^2-2x}
     \end{gather*}
 \end{exbox}
 \subsubsection{Two Independent Variables}
@@ -564,7 +573,7 @@ Suppose that we wish to o find the rate of change of $z$ at $(x_0,y_0)$ in the d
     \end{align}
     \item On the other hand, we can write $g(h)=f(x,y)$ where $x=x_0+ha, y=y_0+hb$, so \nameref{thm:chain-rule-case-1} gives
     \begin{align*}
-        g'(h)&=\frac{\partial f}{\partial x} \cdot \frac{dx}{dh} + \frac{\partial f}{\partial y]} \cdot \frac{dy}{dh} \\
+        g'(h)&=\frac{\partial f}{\partial x} \cdot \frac{\mathrm d x}{\mathrm d h} + \frac{\partial f}{\partial y]} \cdot \frac{\mathrm d y}{\mathrm d h} \\
         &=f_x(x,y)a+f_y(x,y)b
     \end{align*}
     \item Put $h=0, x=x_0, y=y_0$, we get
@@ -613,7 +622,7 @@ Suppose $S$ is a surface with equation $F(x,y,z)=lk$, that is, it is a {\color{r
 \end{displaymath}
 Use \nameref{thm:chain-rule-case-1} to differentiate both sides
 \begin{displaymath}
-    \frac{\partial F}{\partial x} \cdot \frac{dx}{dt} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dt} + \frac{\partial F}{\partial z} \cdot \frac{dz}{dt} = 0
+    \frac{\partial F}{\partial x} \cdot \frac{\mathrm d x}{\mathrm d t} + \frac{\partial F}{\partial y} \cdot \frac{\mathrm d y}{\mathrm d t} + \frac{\partial F}{\partial z} \cdot \frac{\mathrm d z}{\mathrm d t} = 0
 \end{displaymath}
 But since, $\nabla F = \langle F_x, F_y, F_z \rangle$ and $r'(t) = \langle x'(t), y'(t), z'(t) \rangle$, so the above equation can be written as
 \begin{displaymath}
@@ -857,4 +866,73 @@ We only need to modify our \nameref{thm:method-of-lagrange-multipliers} into
     \nabla f(x,y,z)=\lambda \nabla g(x,y,z) + \mu \nabla h(x,y,z)
 \end{displaymath}
 and let the two constraints satisfy simultaneously.
+
+\chapter{Multiple Integrals}
+\section{Double Integrals over Rectangles}
+In much the same way that our attempt to solve the area problem led to the definition of a definite integral, we now seek to find the volume of a solid and in the process we arrive at the definition of a double integral.
+\subsection{Volumes and Double Integrals}
+First, let's consider a function $\symbfit{f}$ of two variables defined on a closed rectangle
+\begin{displaymath}
+    R = [a,b]\times[c,d]=\{(x,y)\in \R^2 \mid a \leq x \leq b, c \leq y \leq d \}
+\end{displaymath}
+and we first suppose that $f(x,y)\geq 0$. The graph of $f$ is a surface with equation $z=f(x,y)$. Let $S$ be the solid that lies above $R$ and under the graph of $f$, that is,
+\begin{displaymath}
+    S=\{(x,y,z)\in \R^3 \mid 0 \leq z \leq f(x,y), (x,y) \in R\}
+\end{displaymath}
+(See Figure \ref{fig:volume-and-double-integrals}) Our goal is to find the volume of $S$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/volumes-and-double-integrals.png}
+    \caption{Volume of S}
+    \label{fig:volume-and-double-integrals}
+\end{figure}
+Now, let's divide the rectangle $R$ into subrectangles (See Figure \ref{fig:dividing-r-into-subrectangles}) to form our Riemann Sum formula.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/double-integral-riemann-sum-1.png}
+    \caption{Dividing $R$ into subrectangles}
+    \label{fig:dividing-r-into-subrectangles}
+\end{figure}
+If we choose a \textbf{sample point} $(x_{ij}^{*},y_{ij}^{*})$ in each $R_{ij}$, then we can approximate the part of $S$ that lies above each $R_{ij}$ by a thin rectangular box( or "column") as shown in Figure \ref{fig:volume-of-thin-rect-box}. And its volume is the height of the box times the area of the base rectangle
+\begin{displaymath}
+    f(x_{ij}^{*},y_{ij}^{*})~\Delta A
+\end{displaymath}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/double-integral-riemann-sum-2.png}
+    \caption{Volume of a thin rectangle box}
+    \label{fig:volume-of-thin-rect-box}
+\end{figure}
+If we follow this procedure for all the rectangles and add the volumes of the corresponding boxes, we get an approximation to the total volume of $S$. (See Figure \ref{fig:volume-in-sum-of-rectangles}).
+\begin{equation} \label{eq:volume-in-sum-of-rectangles}
+    V \approx \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}^{*},y_{ij}^{*}) ~\Delta A
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/double-integral-riemann-sum-3.png}
+    \caption{Volume in sum of rectangles}
+    \label{fig:volume-in-sum-of-rectangles}
+\end{figure}
+Our intuition tells us that the approximation given in \eqref{eq:volume-in-sum-of-rectangles} becomes better as $m$ and $n$ become larger and so we would expect that
+\begin{equation} \label{eq:riemann-sum-volume-version}
+    V = \lim\limits_{m,n \to \infty} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}^{*},y_{ij}^{*}) ~\Delta A
+\end{equation}
+We use this equation \eqref{eq:riemann-sum-volume-version} to define the \textbf{volume} of the solid $S$ that lies under the graph of $f$ and above the rectangle $R$. Now, let's make the definition of {\color{red} \textbf{Double Integrals}}
+\begin{dfnbox}{Double Integrals}{double-integrals}
+    The {\color{red} \textbf{Double Integral}} of $f$ over the rectangle $R$ is
+    \begin{displaymath}
+        \iint_R f(x,y) \,dA = \lim\limits_{m,n \to \infty} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}^{*},y_{ij}^{*}) ~\Delta A
+    \end{displaymath}
+    if the limit exists
+\end{dfnbox}
+The sum defined in \eqref{eq:volume-in-sum-of-rectangles} is called the {\color{red} \textbf{double Riemann sum}} and is used to approximate the value of the double integral. If $f$ happens to be a \textit{positive} function, then the double Riemann sum represents the sum of volumes of columns, as in Figure \ref{fig:volume-in-sum-of-rectangles} and is an approximation to the volume under the graph of $f$.
+\subsection{The Midpoint Rule}
+The Midpoint rule we have seen in single integrals also has its counterpart in double integrals. For now, we just choose the sample point $(x_{ij}^*, y_{ij}^*)$ in $R_{ij}$ to be the center $(\overline{x_i}, \overline{y_i})$ if $R_{ij}$. In other words, $\overline{x_i}$ is the midpoint of $[x_{i-1}, x_i]$ and $\overline{y_i}$ is the midpoint of $[y_{i-1}, y_i]$.
+\begin{thmbox}{Midpoint Rule for Double Integrals}{midpoint-rule-for-double-integrals}
+    \begin{displaymath}
+        \iint_R f(x,y) \,dA = \sum_{i=1}^{m} \sum_{j=1}^{n} f(\overline{x_{i}},\overline{y_{j}}) ~\Delta A
+    \end{displaymath}
+    where $\overline{x_i}$ is the midpoint of $[x_{i-1}, x_i]$ and $\overline{y_i}$ is the midpoint of $[y_{i-1}, y_i]$.
+\end{thmbox}
+
 \end{document}
