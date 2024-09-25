@@ -926,6 +926,12 @@ We use this equation \eqref{eq:riemann-sum-volume-version} to define the \textbf
     if the limit exists
 \end{dfnbox}
 The sum defined in \eqref{eq:volume-in-sum-of-rectangles} is called the {\color{red} \textbf{double Riemann sum}} and is used to approximate the value of the double integral. If $f$ happens to be a \textit{positive} function, then the double Riemann sum represents the sum of volumes of columns, as in Figure \ref{fig:volume-in-sum-of-rectangles} and is an approximation to the volume under the graph of $f$.
+\begin{thmbox}{Geometric meaning of Double Integrals}{geometric-meaning-of-double-integrals}
+    If $f(x,y) \geq 0$, then the volume of solid that lies above the rectangle $R$ and below the surface $z=f(x,y)$ is
+    \begin{displaymath}
+        V = \iint_{R}f(x,y)~dA
+    \end{displaymath}
+\end{thmbox}
 \subsection{The Midpoint Rule}
 The Midpoint rule we have seen in single integrals also has its counterpart in double integrals. For now, we just choose the sample point $(x_{ij}^*, y_{ij}^*)$ in $R_{ij}$ to be the center $(\overline{x_i}, \overline{y_i})$ if $R_{ij}$. In other words, $\overline{x_i}$ is the midpoint of $[x_{i-1}, x_i]$ and $\overline{y_i}$ is the midpoint of $[y_{i-1}, y_i]$.
 \begin{thmbox}{Midpoint Rule for Double Integrals}{midpoint-rule-for-double-integrals}
@@ -934,5 +940,25 @@ The Midpoint rule we have seen in single integrals also has its counterpart in d
     \end{displaymath}
     where $\overline{x_i}$ is the midpoint of $[x_{i-1}, x_i]$ and $\overline{y_i}$ is the midpoint of $[y_{i-1}, y_i]$.
 \end{thmbox}
-
+\subsection{Iterated Integrals}
+This method shows how to express a double integral as an {\color{red} \textbf{Iterated Integrals}}, which can then be evaluated by calculating \textbf{two single integrals}.
+\subsubsection{Explanation}
+Suppose that $f$ is a function of two variables that is integrable on the rectangle $R=[a,b]\times[c,d]$. $\int_{c}^{d}f(x,y)~dy$ means that $x$ is held fixed and $f(x,y)$ is integrated with regard to $y$ from $y=c$ to $y=d$. This procedure is called {\color{red} \textbf{partial integration with regard to $y$}}. Now, $\int_{c}^{d}f(x,y)~dy$ is a number that depends on the value of $x$, so it defines a function of $x$.
+\begin{displaymath}
+    A(x,y)=\int_{c}^{d}f(x,y)~dy
+\end{displaymath}
+If now we integrate the function $A$ with regard to $x$ from $x=a$ to $x=b$, we get
+\begin{gather}
+    \int_a^bA(x)~dx=\underbrace{\int_a^b\Bigg[\int_c^df(x,y)~dy\Bigg]~dx}_\text{Iterated Integral} \\
+    \int_a^b\int_c^df(x,y)~dy~dx = \int_a^b\Bigg[\int_c^df(x,y)~dy\Bigg]~dx \label{eq:iterated-integreal-1}
+\end{gather}
+Similarly,
+\begin{equation} \label{eq:iterated-integreal-2}
+    \int_c^d\int_a^bf(x,y)~dx~dy = \int_c^d\Bigg[\int_a^bf(x,y)~dx\Bigg]~dy
+\end{equation}
+\begin{notebox}
+    \begin{remark}
+        Notice that in both equation \eqref{eq:iterated-integreal-1} and equation \eqref{eq:iterated-integreal-2} we work from \textbf{the inside out}.
+    \end{remark}
+\end{notebox}
 \end{document}
